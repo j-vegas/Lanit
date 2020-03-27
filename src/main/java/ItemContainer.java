@@ -2,7 +2,7 @@ import java.util.Collection;
 
 public abstract class ItemContainer extends Item implements Iterable <Item> {
 
-    private Collection <Item> itemCollection;
+    private Collection <Item> ItemContainer;
 
     public ItemContainer(String nameItem) {super(nameItem);}
 
