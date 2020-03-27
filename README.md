@@ -6,4 +6,4 @@
 * Создал extends Items: Brick
 * Создал extends ItemContainer: Bag, Box, Stack
 
-В классе Item реализовал методы `toString()`, `getNameItem()`, `getWeightItem()`, `getProperties()`.
+В классе Item реализовал методы `getInfo()`, `toString()`, `getNameItem()`, `getWeightItem()`, `getProperties()`.
