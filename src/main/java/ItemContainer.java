@@ -1,10 +1,13 @@
 import java.util.Collection;
 
-public abstract class ItemContainer extends Item implements Iterable <Item> {
 
-    private Collection <Item> ItemContainer;
+public abstract class ItemContainer extends Item implements Iterable<Item> {
 
-    public ItemContainer(String nameItem) {super(nameItem);}
+    private Collection<Item> itemContainer;
+
+    public ItemContainer(String nameItem) {
+        super(nameItem);
+    }
 
     public ItemContainer(String nameItem, double weightItem) {
         super(nameItem, weightItem);
@@ -18,12 +21,20 @@ public abstract class ItemContainer extends Item implements Iterable <Item> {
         super(nameItem, weightItem, properties);
     }
 
-    public String addItem() {
-        return "addItem";
+    // Добавление предмета
+    public boolean addItem(Item i) throws Exception {
+        if (i.isItemAdded()) {
+            throw new ItemAlreadyPlacedException("Предмет уже есть в другом контейнере!");
+        } else {
+            i.setItemAdded(true);
+            return itemContainer.add(i);
+        }
     }
 
-    public String pullItem() {
-        return "pullItem";
-    }
+    // Удаление предмета, переопределяется в классах Bag, Box, Stack
+    public abstract Item removeItem() throws Exception;
 
+    public void setItemContainer(Collection<Item> itemContainer) {
+        this.itemContainer = itemContainer;
+    }
 }

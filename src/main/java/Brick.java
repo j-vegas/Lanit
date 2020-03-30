@@ -1,13 +1,15 @@
 public class Brick extends Item {
-    private static String name = "кирпич";
+    private static String name = "Кирпич";
 
     public Brick() {
         super(name);
     }
-    public Brick(String ... properties) {
+
+    public Brick(String... properties) {
         super(name, properties);
     }
-    public Brick(double weightItem, String ... properties) {
+
+    public Brick(double weightItem, String... properties) {
         super(name, weightItem, properties);
     }
 
