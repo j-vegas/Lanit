@@ -1,6 +1,7 @@
 import java.util.ArrayList;
+import java.util.Random;
 
-public abstract class Bag extends ItemContainer {
+public class Bag extends ItemContainer {
     private static String name = "Мешок";
     private double maxWeight;
     private ArrayList<Item> itemArrayList = new ArrayList<Item>();
@@ -17,10 +18,23 @@ public abstract class Bag extends ItemContainer {
         this.setItemContainer(itemArrayList);
     }
 
-
     @Override
     public boolean addItem(Item i) throws Exception {
-        return super.addItem(i);
+        if (maxWeight > this.getWeightItem() + i.getWeightItem()) {
+            return super.addItem(i);
+        } else {
+            throw new ItemStoreException("Больше предметов чем надо!");
+        }
+    }
+
+    @Override
+    public Item removeI() throws Exception {
+        if (itemArrayList.isEmpty()) {
+            throw new ItemStoreException("Ничего нет!");
+        } else {
+            Random random = new Random();
+            return itemArrayList.remove(random.nextInt());
+        }
     }
 
     /*public String toString() {

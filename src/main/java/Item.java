@@ -43,7 +43,7 @@ public abstract class Item {
 
     @Override
     public String toString() {
-        return nameItem + " №" + itemNumber + " [Time: " + dateFormat.format(date) + "]";
+        return nameItem + " №" + itemNumber + " (" + dateFormat.format(date) + ")";
     }
 
     public String getNameItem() {
