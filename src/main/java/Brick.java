@@ -1,5 +1,5 @@
 public class Brick extends Item {
-    private static String name = "Brick (кирпич)";
+    private static String name = "Brick";
 
     public Brick() {
         super(name);
@@ -15,6 +15,6 @@ public class Brick extends Item {
 
     @Override
     String getInfo() {
-        return this.getNameItem() + " " + this.getWeightItem() + " " + this.getProperties();
+        return this.getNameItem() + this.itemNumber + " " + this.getWeightItem() + " " + this.getProperties();
     }
 }

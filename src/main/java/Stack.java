@@ -1,5 +1,5 @@
 public abstract class Stack extends ItemContainer {
-    private static String name = "Стопка";
+    private static String name = "Stack (Стопка)";
     private int maxItems;
 
     public Stack(int maxItems) {

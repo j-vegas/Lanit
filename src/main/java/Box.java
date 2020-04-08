@@ -1,10 +1,11 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class Box extends ItemContainer {
-    private static String name = "Box (коробка)";
+    private static String name = "Box";
     private double maxWeight;
-    private ArrayList<Item> itemArrayList = new ArrayList<Item>();
+    private List<Item> itemArrayList = new ArrayList<Item>();
 
     public Box(double maxWeight) {
         super(name, maxWeight);
@@ -17,8 +18,9 @@ public class Box extends ItemContainer {
     }
 
     @Override
-    public boolean addItem(Item i) throws Exception {
+    public boolean addItem(Item i) throws ItemStoreException, ItemAlreadyPlacedException {
         if (maxWeight > this.getWeightItem() + i.getWeightItem()) {
+
             return super.addItem(i);
         } else {
             throw new ItemStoreException("Вес превышен!");
@@ -36,5 +38,10 @@ public class Box extends ItemContainer {
             i.setItemAdded(true);
             return i;
         }
+    }
+
+    @Override
+    String getInfo() {
+        return this.getNameItem() + ": maxWeight(" + this.maxWeight + ") weight(" + this.getWeightItem() + ") " + "Inside: " + itemArrayList;
     }
 }

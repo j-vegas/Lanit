@@ -13,7 +13,7 @@ public abstract class Item {
 
     private boolean itemAdded = false;
     private static int itemStartNumber = 1;
-    private int itemNumber;
+    public int itemNumber;
 
     public Item(String nameItem) {
         this.nameItem = nameItem;
@@ -43,7 +43,7 @@ public abstract class Item {
 
     @Override
     public String toString() {
-        return nameItem + " №" + itemNumber + " (" + dateFormat.format(date) + ")";
+        return nameItem + " #" + itemNumber + getProperties();
     }
 
     public String getNameItem() {

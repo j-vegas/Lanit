@@ -6,6 +6,7 @@ public abstract class ItemContainer extends Item implements Iterable<Item> {
 
     private Collection<Item> itemContainer;
 
+
     public ItemContainer(String nameItem) {
         super(nameItem);
     }
@@ -31,7 +32,7 @@ public abstract class ItemContainer extends Item implements Iterable<Item> {
     }
 
     // Добавление предмета
-    public boolean addItem(Item i) throws Exception {
+    public boolean addItem(Item i) throws ItemAlreadyPlacedException, ItemStoreException {
         if (i.isItemAdded()) {
             throw new ItemAlreadyPlacedException("Предмет уже есть в одном из контейнеров, выбери другой!");
         } else {
@@ -70,7 +71,7 @@ public abstract class ItemContainer extends Item implements Iterable<Item> {
         }
         //System.out.println(itemContainer);
         //System.out.println(this.getSize());
-        System.out.println(this.getSize() + "Общий вес: " + this.getNameItem() + " " + allWeight);
+        //System.out.println("Общий вес: " + this.getNameItem() + " " + allWeight);
         return allWeight;
     }
 
@@ -78,6 +79,13 @@ public abstract class ItemContainer extends Item implements Iterable<Item> {
     public Iterator<Item> iterator() {
         return itemContainer.iterator();
     }
+
+   /* @Override
+    public String toString(){
+        return this.getNameItem() + " Макс вес: " + ;*/
+
+
+
 
 }
 
