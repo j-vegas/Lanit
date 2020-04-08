@@ -80,7 +80,7 @@ public class TestItem {
 
     }
 
-    @Test(expected = ItemStoreException.class)
+    @Test
     @DisplayName("Test - Bricks add to Stack")
     public void test5() throws ItemStoreException, ItemAlreadyPlacedException {
         System.out.println("=====5=====");
@@ -88,7 +88,7 @@ public class TestItem {
         Brick b = new Brick(4.0, "плоский");
         Brick c = new Brick(4.0, "плоский");
 
-        Stack d = new Stack(5);
+        Stack d = new Stack(2);
 
         d.addItem(a);
         d.addItem(b);

@@ -7,21 +7,27 @@ public class Stack extends ItemContainer {
     private Deque<Item> itemDeque = new ArrayDeque<Item>();
 
     public Stack(int maxItems) {
-        super(name, maxItems);
+        super(name);
+        this.maxItems = maxItems;
         this.setItemContainer(itemDeque);
     }
 
     @Override
+    String getInfo() {
+        return this.getNameItem() +  " Inside: " + itemDeque;
+    }
+
+    @Override
     public boolean addItem(Item i) throws ItemStoreException, ItemAlreadyPlacedException {
-        if (i.getProperties().contains("плоский")) {
-            if (itemDeque.size() < maxItems) {
+        if (itemDeque.size() < maxItems) {
+            if (i.getProperties().contains("плоский")) {
                 maxItems += 1;
-                return addItem(i);
+                return super.addItem(i);
             } else {
-                throw new ItemStoreException("Добавляются только плоские предметы!");
+                throw new ItemStoreException("Нельзя положить больше \" + maxItems + \" предмета(ов)");
             }
         } else {
-            throw new ItemAlreadyPlacedException("Нельзя положить больше " + maxItems + " предмета(ов)");
+            throw new ItemAlreadyPlacedException("Добавляются только плоские предметы!");
         }
     }
 
@@ -33,5 +39,7 @@ public class Stack extends ItemContainer {
         } else {
             throw new ItemStoreException("Тут пусто!");
         }
+
+
     }
 }
