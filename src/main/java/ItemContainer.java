@@ -22,6 +22,14 @@ public abstract class ItemContainer extends Item implements Iterable<Item> {
         super(nameItem, weightItem, properties);
     }
 
+    public Collection<Item> getItemContainer() {
+        return itemContainer;
+    }
+
+    public void setItemContainer(Collection<Item> itemContainer) {
+        this.itemContainer = itemContainer;
+    }
+
     // Добавление предмета
     public boolean addItem(Item i) throws Exception {
         if (i.isItemAdded()) {
@@ -35,13 +43,9 @@ public abstract class ItemContainer extends Item implements Iterable<Item> {
     // Удаление предмета, переопределяется в классах Bag, Box, Stack
     public abstract Item removeI() throws Exception;
 
-    public Iterator<Item> iterator() {
-        return itemContainer.iterator();
-    }
-
     public void getItems() {
         if (itemContainer.isEmpty()) {
-            itemContainer.clear();
+            return;
         }
         System.out.println(itemContainer);
     }
@@ -49,11 +53,12 @@ public abstract class ItemContainer extends Item implements Iterable<Item> {
     //Получаем размер контейнера
     public int getSize() {
         System.out.println("Колличество предметов: " + itemContainer.size());
-        return 0;
+        return itemContainer.size();
     }
 
     //Получаем общий вес контейнера
-    public double getAllWeightItems() {
+    @Override
+    public double getWeightItem() {
         double allWeight = 0;
         //allWeight = allWeight + getWeightItem();
         allWeight += super.getWeightItem();
@@ -64,11 +69,15 @@ public abstract class ItemContainer extends Item implements Iterable<Item> {
             allWeight += item.getWeightItem();
         }
         //System.out.println(itemContainer);
-        System.out.println("Общий вес: " + getNameItem() + " " + allWeight);
+        //System.out.println(this.getSize());
+        System.out.println(this.getSize() + "Общий вес: " + this.getNameItem() + " " + allWeight);
         return allWeight;
     }
 
-    public void setItemContainer(Collection<Item> itemContainer) {
-        this.itemContainer = itemContainer;
+    @Override
+    public Iterator<Item> iterator() {
+        return itemContainer.iterator();
     }
+
 }
+

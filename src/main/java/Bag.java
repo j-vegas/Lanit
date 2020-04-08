@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Bag extends ItemContainer {
-    private static String name = "Мешок";
+    private static String name = "Bag (мешок)";
     private double maxWeight;
     private ArrayList<Item> itemArrayList = new ArrayList<Item>();
 
@@ -33,7 +33,7 @@ public class Bag extends ItemContainer {
             throw new ItemStoreException("Ничего нет!");
         } else {
             Random random = new Random();
-            return itemArrayList.remove(random.nextInt());
+            return itemArrayList.remove(random.nextInt(itemArrayList.size()));
         }
     }
 
@@ -44,6 +44,5 @@ public class Bag extends ItemContainer {
     String getInfo() {
         return this.getNameItem() + " maxWeight(" + this.maxWeight + ") weight(" + this.getWeightItem() + ") " + this.getProperties();
     }
-
 }
 

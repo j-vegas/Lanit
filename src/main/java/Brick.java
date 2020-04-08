@@ -1,5 +1,5 @@
 public class Brick extends Item {
-    private static String name = "Кирпич";
+    private static String name = "Brick (кирпич)";
 
     public Brick() {
         super(name);
