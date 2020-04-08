@@ -10,6 +10,17 @@
 
 ### Version 1.1
 
-* Создал классы ItemAlreadyPlacedException, ItemStoreException
+* Добавил классы ItemAlreadyPlacedException, ItemStoreException
 
 В классе ItemContainer реализованы методы `addItem()`, `removeItem()`
+
+### Version 1.2
+
+* Добавил класс Stack
+* Подключил Allure к Maven-проекту
+* Добавил тесты TestItem
+
+Прогон тестов командой `mvn clean test`
+Cформировать html–отчет `mvn allure:serve`
+
+
