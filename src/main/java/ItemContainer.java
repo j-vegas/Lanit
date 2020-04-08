@@ -85,7 +85,5 @@ public abstract class ItemContainer extends Item implements Iterable<Item> {
         return this.getNameItem() + " Макс вес: " + ;*/
 
 
-
-
 }
 

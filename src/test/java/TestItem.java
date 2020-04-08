@@ -1,4 +1,4 @@
-import io.qameta.allure.Step;
+
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 
@@ -42,7 +42,7 @@ public class TestItem {
     }
 
 
-    @Test//(expected = ItemStoreException.class)
+    @Test(expected = ItemStoreException.class)
     @DisplayName("Test - More Bricks add to Bag")
     public void test3() throws ItemStoreException, ItemAlreadyPlacedException {
         System.out.println("=====3=====");
@@ -60,7 +60,8 @@ public class TestItem {
         assertEquals(d.getWeightItem(), 6.1, 0);
 
     }
-    @Test//(expected = ItemStoreException.class)
+
+    @Test(expected = ItemStoreException.class)
     @DisplayName("Test - More Bricks add to Box")
     public void test4() throws ItemStoreException, ItemAlreadyPlacedException {
         System.out.println("=====4=====");
@@ -76,6 +77,24 @@ public class TestItem {
 
         System.out.println(d.getInfo());
         assertEquals(d.getWeightItem(), 6.1, 0);
+
+    }
+
+    @Test(expected = ItemStoreException.class)
+    @DisplayName("Test - Bricks add to Stack")
+    public void test5() throws ItemStoreException, ItemAlreadyPlacedException {
+        System.out.println("=====5=====");
+        Brick a = new Brick(4.0, "плоский");
+        Brick b = new Brick(4.0, "плоский");
+        Brick c = new Brick(4.0, "плоский");
+
+        Stack d = new Stack(5);
+
+        d.addItem(a);
+        d.addItem(b);
+        d.addItem(c);
+
+        System.out.println(d.getInfo());
 
     }
 }
