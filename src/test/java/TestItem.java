@@ -19,8 +19,8 @@ public class TestItem {
         d.addItem(a);
         d.addItem(b);
 
-        System.out.println(d.getInfo());
-        assertEquals(d.getWeightItem(), 4.1, 0);
+        System.out.println(d.toString());
+        assertEquals(d.getAllWeightItem(), 4.1, 0);
 
     }
 
@@ -36,8 +36,8 @@ public class TestItem {
         e.addItem(a);
         e.addItem(b);
 
-        System.out.println(e.getInfo());
-        assertEquals(e.getWeightItem(), 4.5, 0);
+        System.out.println(e.toString());
+        assertEquals(e.getAllWeightItem(), 4.5, 0);
 
     }
 
@@ -56,8 +56,8 @@ public class TestItem {
         d.addItem(b);
         d.addItem(c);
 
-        System.out.println(d.getInfo());
-        assertEquals(d.getWeightItem(), 6.1, 0);
+        System.out.println(d.toString());
+        assertEquals(d.getAllWeightItem(), 6.1, 0);
 
     }
 
@@ -75,8 +75,8 @@ public class TestItem {
         d.addItem(b);
         d.addItem(c);
 
-        System.out.println(d.getInfo());
-        assertEquals(d.getWeightItem(), 6.1, 0);
+        System.out.println(d.toString());
+        assertEquals(d.getAllWeightItem(), 6.1, 0);
 
     }
 
@@ -94,7 +94,7 @@ public class TestItem {
         d.addItem(b);
         d.addItem(c);
 
-        System.out.println(d.getInfo());
+        System.out.println(d.toString());
 
     }
 }

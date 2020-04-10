@@ -13,18 +13,13 @@ public class Stack extends ItemContainer {
     }
 
     @Override
-    String getInfo() {
-        return this.getNameItem() +  " Inside: " + itemDeque;
-    }
-
-    @Override
     public boolean addItem(Item i) throws ItemStoreException, ItemAlreadyPlacedException {
-        if (itemDeque.size() < maxItems) {
+        if (itemDeque.size() <= maxItems) {
             if (i.getProperties().contains("плоский")) {
                 maxItems += 1;
                 return super.addItem(i);
             } else {
-                throw new ItemStoreException("Нельзя положить больше \" + maxItems + \" предмета(ов)");
+                throw new ItemStoreException("Нельзя положить больше " + maxItems + " предмета(ов)");
             }
         } else {
             throw new ItemAlreadyPlacedException("Добавляются только плоские предметы!");
@@ -39,7 +34,12 @@ public class Stack extends ItemContainer {
         } else {
             throw new ItemStoreException("Тут пусто!");
         }
-
-
+    }
+    @Override
+    public String toString() {
+        return "ItemContainer: " + this.getNameItem()
+                + " | MaxItems: " + this.maxItems
+                + " | Items: " + this.itemDeque.size()
+                + " | Inside: " + itemDeque;
     }
 }

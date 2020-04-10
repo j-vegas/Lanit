@@ -19,7 +19,7 @@ public class Box extends ItemContainer {
 
     @Override
     public boolean addItem(Item i) throws ItemStoreException, ItemAlreadyPlacedException {
-        if (maxWeight > this.getWeightItem() + i.getWeightItem()) {
+        if (maxWeight > this.getAllWeightItem() + i.getWeightItem()) {
 
             return super.addItem(i);
         } else {
@@ -41,7 +41,10 @@ public class Box extends ItemContainer {
     }
 
     @Override
-    String getInfo() {
-        return this.getNameItem() + ": maxWeight(" + this.maxWeight + ") weight(" + this.getWeightItem() + ") " + "Inside: " + itemArrayList;
+    public String toString() {
+        return "ItemContainer: " + this.getNameItem()
+                + " | MaxWeight: " + this.maxWeight
+                + " | TotalWeight: " + this.getAllWeightItem()
+                + " | Inside: " + itemArrayList;
     }
 }

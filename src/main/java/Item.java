@@ -2,24 +2,24 @@ import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Date;
+import java.util.Set;
 
 public abstract class Item {
     private String nameItem;
     private double weightItem;
     private static double defaultWeightItem = 1.0;
-    private HashSet<String> properties = new HashSet<String>();
-    private Date date = new Date();
-    private SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss:S");
-
     private boolean itemAdded = false;
-    private static int itemStartNumber = 1;
-    public int itemNumber;
+    private Set<String> properties = new HashSet<String>();
+    //private static int itemStartNumber = 1;
+    //public int itemNumber;
+    //private Date date = new Date();
+    //private SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss:S");
 
     public Item(String nameItem) {
         this.nameItem = nameItem;
         this.weightItem = defaultWeightItem;
-        this.itemNumber = itemStartNumber;
-        itemStartNumber++;
+        //this.itemNumber = itemStartNumber;
+        //itemStartNumber++;
     }
 
     public Item(String nameItem, double weightItem) {
@@ -37,15 +37,6 @@ public abstract class Item {
         this.weightItem = weightItem;
     }
 
-    String getInfo() {
-        return "Default";
-    }
-
-    @Override
-    public String toString() {
-        return nameItem + " #" + itemNumber + getProperties();
-    }
-
     public String getNameItem() {
         return nameItem;
     }
@@ -54,7 +45,7 @@ public abstract class Item {
         return weightItem;
     }
 
-    public HashSet<String> getProperties() {
+    public Set<String> getProperties() {
         return properties;
     }
 
@@ -64,5 +55,11 @@ public abstract class Item {
 
     public void setItemAdded(boolean itemAdded) {
         this.itemAdded = itemAdded;
+    }
+
+    public String toString() {
+        return "NameItem: " + nameItem
+                + " | WeightItem: " + weightItem
+                + " | Properties: " + getProperties();
     }
 }

@@ -12,9 +12,4 @@ public class Brick extends Item {
     public Brick(double weightItem, String... properties) {
         super(name, weightItem, properties);
     }
-
-    @Override
-    String getInfo() {
-        return this.getNameItem() + this.itemNumber + " " + this.getWeightItem() + " " + this.getProperties();
-    }
 }
