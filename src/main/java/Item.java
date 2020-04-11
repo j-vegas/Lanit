@@ -1,25 +1,17 @@
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Date;
 import java.util.Set;
 
-public abstract class Item {
+public class Item {
     private String nameItem;
     private double weightItem;
     private static double defaultWeightItem = 1.0;
     private boolean itemAdded = false;
     private Set<String> properties = new HashSet<String>();
-    //private static int itemStartNumber = 1;
-    //public int itemNumber;
-    //private Date date = new Date();
-    //private SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss:S");
 
     public Item(String nameItem) {
         this.nameItem = nameItem;
         this.weightItem = defaultWeightItem;
-        //this.itemNumber = itemStartNumber;
-        //itemStartNumber++;
     }
 
     public Item(String nameItem, double weightItem) {
@@ -27,14 +19,10 @@ public abstract class Item {
         this.weightItem = weightItem;
     }
 
-    public Item(String nameItem, String... properties) {
-        this(nameItem);
-        this.properties.addAll(Arrays.asList(properties));
-    }
-
     public Item(String nameItem, double weightItem, String... properties) {
-        this(nameItem, properties);
+        this(nameItem);
         this.weightItem = weightItem;
+        this.properties.addAll(Arrays.asList(properties));
     }
 
     public String getNameItem() {

@@ -20,7 +20,13 @@
 * Подключил Allure к Maven-проекту
 * Добавил тесты TestItem
 
+### Version 1.3
+
+* Произведена работа над улучшением кода
+* Добавлены новые тесты в TestItem
+
 Прогон тестов командой `mvn clean test`
-Cформировать html–отчет `mvn allure:serve`
+| Cформировать html–отчет `mvn allure:serve`
+
 
 

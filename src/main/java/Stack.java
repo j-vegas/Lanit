@@ -2,39 +2,50 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class Stack extends ItemContainer {
-    private static String name = "Stack (Стопка)";
+
     private int maxItems;
     private Deque<Item> itemDeque = new ArrayDeque<Item>();
 
-    public Stack(int maxItems) {
-        super(name);
+    public Stack(String nameItem, int maxItems) {
+        super(nameItem);
         this.maxItems = maxItems;
         this.setItemContainer(itemDeque);
     }
 
     @Override
-    public boolean addItem(Item i) throws ItemStoreException, ItemAlreadyPlacedException {
+    public void addItem(Item i) throws ItemStoreException, ItemAlreadyPlacedException {
         if (itemDeque.size() <= maxItems) {
             if (i.getProperties().contains("плоский")) {
-                maxItems += 1;
-                return super.addItem(i);
+                i.setItemAdded(true);
+                itemDeque.add(i);
             } else {
-                throw new ItemStoreException("Нельзя положить больше " + maxItems + " предмета(ов)");
+                throw new ItemAlreadyPlacedException("Добавляются только плоские предметы!");
             }
         } else {
-            throw new ItemAlreadyPlacedException("Добавляются только плоские предметы!");
+            throw new ItemStoreException("Нельзя положить больше " + maxItems + " предметов!");
         }
     }
 
     @Override
-    public Item removeI() throws ItemStoreException, ItemAlreadyPlacedException {
+    public void getItem(Item i) throws ItemAlreadyPlacedException, ItemStoreException {
+
+    }
+
+    @Override
+    public void removeItem(Item i) throws ItemStoreException, ItemAlreadyPlacedException {
         if (!itemDeque.isEmpty()) {
-            maxItems -= 1;
-            return itemDeque.removeLast();
+            i.setItemAdded(false);
+            itemDeque.remove(i);
         } else {
             throw new ItemStoreException("Тут пусто!");
         }
     }
+
+    @Override
+    public void findItem(Item i) throws ItemAlreadyPlacedException, ItemStoreException {
+
+    }
+
     @Override
     public String toString() {
         return "ItemContainer: " + this.getNameItem()
