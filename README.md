@@ -25,8 +25,11 @@
 * Произведена работа над улучшением кода
 * Добавлены новые тесты в TestItem
 
+### Version 1.4
+
+* Произведен рефакторинг кода
+
 Прогон тестов командой `mvn clean test`
 | Cформировать html–отчет `mvn allure:serve`
 
-
-
+![Image alt](https://github.com/J-Vegas/Lanit/blob/master/allurereport.png)

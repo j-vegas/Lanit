@@ -14,11 +14,6 @@ public class Item {
         this.weightItem = defaultWeightItem;
     }
 
-    public Item(String nameItem, double weightItem) {
-        this(nameItem);
-        this.weightItem = weightItem;
-    }
-
     public Item(String nameItem, double weightItem, String... properties) {
         this(nameItem);
         this.weightItem = weightItem;
