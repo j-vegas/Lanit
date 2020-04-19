@@ -13,7 +13,8 @@ public class TestItem {
     Brick br4 = new Brick("Кирпич4", 2.0, "широкий");
 
     Box bx1 = new Box("Коробка1", 10.0, 0.5);
-    Box bx2 = new Box("Коробка1", 10.0, 0.5);
+    Box bx2 = new Box("Коробка2", 10.0, 0.5);
+    Box bx3 = new Box("Коробка3", 10.0, 0.5);
     Bag bg1 = new Bag("Мешок1", 5.0, 0.1);
     Stack st1 = new Stack("Стопка1", 5);
 
@@ -124,7 +125,7 @@ public class TestItem {
     @Story("Проверка исключений")
     @DisplayName("Добавляем одну и туже коробку в стопку")
     @Test(expected = ItemAlreadyPlacedException.class)
-    public void test8() throws ItemStoreException, ItemAlreadyPlacedException {
+    public void test08() throws ItemStoreException, ItemAlreadyPlacedException {
 
         System.out.println("=====08=====");
         st1.addItem(bx1);
@@ -134,7 +135,7 @@ public class TestItem {
     }
 
     @Epic("Удаление")
-    @Story("Удаление предметов из мешка")
+    @Story("Удаление случайного предметов из мешка")
     @DisplayName("Удаляем предмет из мешка")
     @Test
     public void test09() throws ItemStoreException, ItemAlreadyPlacedException {
@@ -144,22 +145,57 @@ public class TestItem {
         bg1.addItem(br2);
         System.out.println(bg1.toString());
 
-        bg1.getItem(br1);
+        bg1.getItem();
         System.out.println(bg1.toString());
     }
 
     @Epic("Удаление")
-    @Story("Удаление предметов из стопку")
-    @DisplayName("Удаляем коробку в стопку")
+    @Story("Удаление предметов из стопки")
+    @DisplayName("Удаляем коробку из стопки")
     @Test
     public void test10() throws ItemStoreException, ItemAlreadyPlacedException {
 
         System.out.println("=====10=====");
         st1.addItem(bx1);
         st1.addItem(bx2);
-
-        st1.getItem(bx2);
+        st1.addItem(bx3);
 
         System.out.println(st1.toString());
+
+        st1.getItem();
+
+        System.out.println(st1.toString());
+    }
+
+    @Epic("Удаление")
+    @Story("Удаление предметов по имени")
+    @DisplayName("Удаляем предмет из мешка")
+    @Test
+    public void test11() throws ItemStoreException, ItemAlreadyPlacedException {
+
+        System.out.println("=====11=====");
+        bg1.addItem(br1);
+        bg1.addItem(br2);
+
+        bg1.getItemByName("Кирпич1");
+
+        System.out.println(bg1.toString());
+    }
+
+    @Epic("Удаление")
+    @Story("Удаление случайного предметов из коробки")
+    @DisplayName("Удаляем предмет из коробки")
+    @Test
+    public void test12() throws ItemStoreException, ItemAlreadyPlacedException {
+
+        System.out.println("=====12=====");
+        bx1.addItem(br1);
+        bx1.addItem(br2);
+        bx1.addItem(br3);
+
+        System.out.println(bx1.toString());
+
+        bx1.getItem();
+        System.out.println(bx1.toString());
     }
 }

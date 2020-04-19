@@ -37,9 +37,8 @@ public class Stack extends ItemContainer {
     }
 
     @Override
-    public Item getItem(Item i) throws ItemAlreadyPlacedException, ItemStoreException {
-        Item item = itemDeque.getLast();
-        itemDeque.remove(i);
+    public Item getItem() {
+        Item item = itemDeque.pollLast();
         item.setItemAdded(false);
         return item;
     }
