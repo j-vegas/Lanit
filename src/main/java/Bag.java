@@ -32,7 +32,7 @@ public class Bag extends ItemContainer {
     }
 
     @Override
-    public Item getItem() throws ItemAlreadyPlacedException, ItemStoreException {
+    public Item getItem() throws ItemStoreException {
         if (!getItemArrayList().isEmpty()) {
 
             Random random = new Random();
